@@ -217,11 +217,18 @@ keys.globalkeys = gears.table.join(
         end,
         {description = "jump to urgent client", group = "client"}),
 
-    awful.key({ superkey,           }, "x",
-        function ()
-            awful.tag.history.restore()
-        end,
-        {description = "go back", group = "tag"}),
+    --awful.key({ superkey,           }, "x",
+    --    function ()
+    --        awful.tag.history.restore()
+    --    end,
+    --    {description = "go back", group = "tag"}),
+    
+    -- Spawn Terminal
+    awful.key({ superkey }, "z",   function () awful.spawn("dmenu_run") end,
+	{description = "open dmenu", group="laucher"}),
+    -- Spawn Terminal
+    awful.key({ superkey }, "x",   function () awful.spawn("alacritty") end,
+	{description = "open alacritty", group="laucher"}),
 
     -- Spawn terminal
     awful.key({ superkey }, "Return", function () awful.spawn(user.terminal) end,

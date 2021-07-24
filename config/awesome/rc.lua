@@ -27,7 +27,7 @@ local decoration_themes = {
     "skyfall",        -- 2 -- No buttons, only title
     "ephemeral",      -- 3 -- Text-generated titlebar buttons
 }
-local decoration_theme = decoration_themes[3]
+local decoration_theme = decoration_themes[1]
 -- ===================================================================
 -- Statusbar themes. Multiple bars can be declared in each theme.
 local bar_themes = {
@@ -79,8 +79,8 @@ user = {
     terminal = "kitty -1",
     floating_terminal = "kitty -1",
     browser = "firefox",
-    file_manager = "kitty -1 --class files -e ranger",
-    editor = "kitty -1 --class editor -e vim",
+    file_manager = "kitty -1 --class files -e nnn",
+    editor = "kitty -1 --class editor -e nvim",
     email_client = "kitty -1 --class email -e neomutt",
     music_client = "kitty -o font_size=12 --class music -e ncmpcpp",
 
@@ -306,16 +306,16 @@ awful.screen.connect_for_each_screen(function(s)
     local l = awful.layout.suit -- Alias to save time :)
     -- Tag layouts
     local layouts = {
-        l.max,
-        l.max,
-        l.max,
+        l.tile,
+        l.tile,
+        l.tile,
         l.max,
         l.tile,
         l.max,
         l.max,
-        l.max,
-        l.tile,
-        l.max
+        l.float,
+        l.float,
+        l.float
     }
 
     -- Tag names
@@ -372,7 +372,7 @@ awful.rules.rules = {
             honor_workarea = true,
             honor_padding = true,
             maximized = false,
-            titlebars_enabled = beautiful.titlebars_enabled,
+            titlebars_enabled = false,
             maximized_horizontal = false,
             maximized_vertical = false,
             placement = floating_client_placement
