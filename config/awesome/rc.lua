@@ -422,9 +422,11 @@ awful.rules.rules = {
             class = {
                 "Chromium-browser",
                 "Chromium",
+                "Google-chrome",
+                "google-chrome",
             }
+            properties = { floating = false }
         },
-        properties = { floating = false }
     },
 
     -- Fullscreen clients
